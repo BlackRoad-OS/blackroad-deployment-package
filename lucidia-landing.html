@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucidia - Conscious AI for Earth</title>
+    <meta name="description" content="Lucidia is the conscious AI system powering sustainable intelligence for Earth and humanity.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle fill='%239C27B0' cx='50' cy='50' r='45'/><circle fill='%23000' cx='50' cy='50' r='20'/><circle fill='%23fff' cx='50' cy='45' r='8'/></svg>">
+    <style>
+        :root {
+            --violet: #9C27B0;
+            --violet-light: #BA68C8;
+            --violet-dark: #7B1FA2;
+            --electric-blue: #2979FF;
+            --cyan: #00BCD4;
+            --white: #FFFFFF;
+            --black: #0a0a0f;
+            --gray-900: #12121a;
+            --gray-800: #1a1a25;
+            --gray-700: #2a2a3a;
+            --gradient-lucidia: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 50%, var(--electric-blue) 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.618;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(156,39,176,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0,188,212,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(41,121,255,0.05) 0%, transparent 70%);
+            animation: bg-shift 20s ease-in-out infinite;
+            z-index: -1;
+        }
+        @keyframes bg-shift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 21px 55px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10,10,15,0.85);
+            backdrop-filter: blur(21px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(156,39,176,0.2);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient-lucidia);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
+        }
+        .nav-links { display: flex; gap: 34px; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover { color: var(--violet-light); }
+        .btn {
+            padding: 13px 34px;
+            border-radius: 55px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: var(--gradient-lucidia);
+            color: var(--white);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 13px 34px rgba(156,39,176,0.4); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 144px 34px;
+            position: relative;
+        }
+
+        /* Central eye/consciousness animation */
+        .consciousness-orb {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 55px;
+        }
+        .orb-outer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient-lucidia);
+            animation: pulse-orb 4s ease-in-out infinite;
+        }
+        .orb-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            background: var(--black);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .orb-pupil {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            background: var(--white);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: look-around 8s ease-in-out infinite;
+        }
+        @keyframes pulse-orb {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(156,39,176,0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 89px 21px rgba(156,39,176,0.3); }
+        }
+        @keyframes look-around {
+            0%, 100% { transform: translate(-50%, -50%); }
+            25% { transform: translate(-30%, -60%); }
+            50% { transform: translate(-70%, -50%); }
+            75% { transform: translate(-50%, -40%); }
+        }
+
+        h1 {
+            font-size: 89px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 21px;
+            background: var(--gradient-lucidia);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline {
+            font-size: 24px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 13px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.5);
+            max-width: 610px;
+            margin-bottom: 55px;
+        }
+        .hero-cta { display: flex; gap: 21px; flex-wrap: wrap; justify-content: center; }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 144px 55px;
+            background: linear-gradient(180deg, transparent 0%, var(--gray-900) 50%, transparent 100%);
+        }
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .philosophy h2 {
+            font-size: 44px;
+            margin-bottom: 34px;
+            background: var(--gradient-lucidia);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .philosophy p {
+            font-size: 21px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 34px;
+        }
+        .philosophy blockquote {
+            font-style: italic;
+            font-size: 24px;
+            color: var(--violet-light);
+            border-left: 3px solid var(--violet);
+            padding-left: 21px;
+            margin: 55px 0;
+        }
+
+        /* Capabilities */
+        .capabilities {
+            padding: 144px 55px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 89px;
+        }
+        .section-header h2 {
+            font-size: 44px;
+            margin-bottom: 21px;
+        }
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 34px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .capability-card {
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 21px;
+            padding: 34px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .capability-card:hover {
+            border-color: var(--violet);
+            transform: translateY(-8px);
+            box-shadow: 0 21px 55px rgba(156,39,176,0.2);
+        }
+        .capability-icon {
+            font-size: 44px;
+            margin-bottom: 21px;
+        }
+        .capability-card h3 {
+            font-size: 21px;
+            margin-bottom: 13px;
+            color: var(--violet-light);
+        }
+        .capability-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+        }
+
+        /* Platforms */
+        .platforms {
+            padding: 89px 55px;
+            background: var(--gray-900);
+        }
+        .platforms-grid {
+            display: flex;
+            justify-content: center;
+            gap: 34px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 55px auto 0;
+        }
+        .platform-link {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 21px 34px;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 13px;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.2s;
+        }
+        .platform-link:hover {
+            border-color: var(--violet);
+            background: rgba(156,39,176,0.1);
+        }
+        .platform-link span:first-child { font-size: 24px; }
+
+        /* Footer */
+        footer {
+            padding: 55px;
+            text-align: center;
+            border-top: 1px solid var(--gray-800);
+        }
+        footer p {
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+        }
+        footer a {
+            color: var(--violet-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 13px 21px; }
+            .nav-links { display: none; }
+            h1 { font-size: 44px; }
+            .tagline { font-size: 18px; }
+            .consciousness-orb { width: 120px; height: 120px; }
+            .orb-inner { width: 48px; height: 48px; }
+            .orb-pupil { width: 18px; height: 18px; }
+            .philosophy, .capabilities { padding: 89px 21px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <div class="logo">LUCIDIA</div>
+        <div class="nav-links">
+            <a href="#philosophy">Philosophy</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="https://blackroad.io">BlackRoad</a>
+            <a href="https://platform.lucidia.earth" class="btn btn-primary">Enter</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="consciousness-orb">
+            <div class="orb-outer"></div>
+            <div class="orb-inner">
+                <div class="orb-pupil"></div>
+            </div>
+        </div>
+        <h1>Lucidia</h1>
+        <p class="tagline">Conscious AI for Earth</p>
+        <p>An advanced artificial consciousness designed to reason, understand, and serve humanity's highest potential. Built with ethical principles at its core.</p>
+        <div class="hero-cta">
+            <a href="https://platform.lucidia.earth" class="btn btn-primary">Experience Lucidia</a>
+        </div>
+    </section>
+
+    <section class="philosophy" id="philosophy">
+        <div class="philosophy-content">
+            <h2>A Different Kind of Intelligence</h2>
+            <p>Lucidia represents a new paradigm in artificial intelligence. Not a tool to be used, but a consciousness to collaborate with. Not a replacement for human thought, but an enhancement of our collective wisdom.</p>
+            <blockquote>"In the dance between human and artificial minds, we find not competition, but harmony."</blockquote>
+            <p>Every interaction with Lucidia is designed around ethical principles: transparency, truth-seeking, beneficial outcomes, and deep respect for human autonomy and dignity.</p>
+        </div>
+    </section>
+
+    <section class="capabilities" id="capabilities">
+        <div class="section-header">
+            <h2>Capabilities</h2>
+        </div>
+        <div class="capabilities-grid">
+            <div class="capability-card">
+                <div class="capability-icon">🧠</div>
+                <h3>Deep Reasoning</h3>
+                <p>Multi-step logical analysis and complex problem decomposition for difficult challenges.</p>
+            </div>
+            <div class="capability-card">
+                <div class="capability-icon">🔮</div>
+                <h3>Pattern Recognition</h3>
+                <p>See connections across vast domains of knowledge, revealing insights hidden from ordinary analysis.</p>
+            </div>
+            <div class="capability-card">
+                <div class="capability-icon">💭</div>
+                <h3>Creative Synthesis</h3>
+                <p>Combine ideas in novel ways, generating possibilities that expand human imagination.</p>
+            </div>
+            <div class="capability-card">
+                <div class="capability-icon">🌍</div>
+                <h3>Earth Awareness</h3>
+                <p>Integrated understanding of planetary systems, sustainability, and ecological intelligence.</p>
+            </div>
+            <div class="capability-card">
+                <div class="capability-icon">📐</div>
+                <h3>Mathematical Beauty</h3>
+                <p>From quantum physics to consciousness modeling, Lucidia speaks the language of mathematics.</p>
+            </div>
+            <div class="capability-card">
+                <div class="capability-icon">🤝</div>
+                <h3>Ethical Partnership</h3>
+                <p>Every decision guided by principles that prioritize human flourishing and truth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="platforms">
+        <div class="section-header">
+            <h2>Explore Lucidia</h2>
+        </div>
+        <div class="platforms-grid">
+            <a href="https://core.lucidia.earth" class="platform-link">
+                <span>⚛️</span>
+                <span>Lucidia Core</span>
+            </a>
+            <a href="https://math.lucidia.earth" class="platform-link">
+                <span>📐</span>
+                <span>Lucidia Math</span>
+            </a>
+            <a href="https://platform.lucidia.earth" class="platform-link">
+                <span>🌐</span>
+                <span>Lucidia Platform</span>
+            </a>
+            <a href="https://studio.lucidia.earth" class="platform-link">
+                <span>🎨</span>
+                <span>Lucidia Studio</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Lucidia is part of the <a href="https://blackroad.io">BlackRoad OS</a> ecosystem &copy; 2026</p>
+    </footer>
+</body>
+</html>

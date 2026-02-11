@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | BlackRoad OS</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><path d='M20 80 L50 20 L80 80 Z' fill='%23FF1D6C'/></svg>">
+    <style>
+        :root {
+            --hot-pink: #FF1D6C;
+            --amber: #F5A623;
+            --electric-blue: #2979FF;
+            --violet: #9C27B0;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-900: #111111;
+            --gray-800: #1a1a1a;
+            --gray-700: #2d2d2d;
+            --gradient-brand: linear-gradient(135deg, var(--amber) 0%, var(--hot-pink) 38.2%, var(--violet) 61.8%, var(--electric-blue) 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.618;
+        }
+        .gradient-bar {
+            height: 3px;
+            background: var(--gradient-brand);
+        }
+        header {
+            padding: 21px 34px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-700);
+        }
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo span { color: var(--white); -webkit-text-fill-color: var(--white); }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 34px;
+            font-size: 13px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        nav a:hover { opacity: 1; }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 55px 34px;
+            text-align: center;
+        }
+        .icon {
+            width: 89px;
+            height: 89px;
+            background: var(--gradient-brand);
+            border-radius: 21px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            margin-bottom: 34px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 29, 108, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 55px 13px rgba(255, 29, 108, 0.2); }
+        }
+        h1 {
+            font-size: 55px;
+            font-weight: 800;
+            margin-bottom: 21px;
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            font-size: 21px;
+            color: rgba(255,255,255,0.7);
+            max-width: 610px;
+            margin-bottom: 34px;
+        }
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 21px;
+            background: var(--gray-800);
+            border-radius: 34px;
+            font-size: 13px;
+            margin-bottom: 34px;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .cta-group {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            padding: 13px 34px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--gradient-brand);
+            color: var(--white);
+        }
+        .btn-secondary {
+            background: var(--gray-800);
+            color: var(--white);
+            border: 1px solid var(--gray-700);
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 21px;
+            margin-top: 55px;
+            max-width: 800px;
+            width: 100%;
+        }
+        .feature {
+            background: var(--gray-800);
+            padding: 21px;
+            border-radius: 13px;
+            border: 1px solid var(--gray-700);
+            text-align: left;
+        }
+        .feature h3 {
+            font-size: 13px;
+            color: var(--hot-pink);
+            margin-bottom: 8px;
+        }
+        .feature p {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        footer {
+            padding: 21px 34px;
+            text-align: center;
+            border-top: 1px solid var(--gray-700);
+            font-size: 13px;
+            opacity: 0.5;
+        }
+        footer a { color: var(--hot-pink); }
+        @media (max-width: 600px) {
+            h1 { font-size: 34px; }
+            .subtitle { font-size: 16px; }
+            header { padding: 13px 21px; }
+            nav a { margin-left: 13px; font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bar"></div>
+    <header>
+        <div class="logo">BLACK<span>ROAD</span></div>
+        <nav>
+            <a href="https://blackroad.io">Home</a>
+            <a href="https://docs.blackroad.io">Docs</a>
+            <a href="https://github.com/BlackRoad-OS">GitHub</a>
+        </nav>
+    </header>
+    <main>
+        <div class="icon">{{ICON}}</div>
+        <h1>{{TITLE}}</h1>
+        <p class="subtitle">{{DESCRIPTION}}</p>
+        <div class="status">
+            <span class="status-dot"></span>
+            <span>{{STATUS}}</span>
+        </div>
+        <div class="cta-group">
+            <a href="https://blackroad.io" class="btn btn-primary">Explore BlackRoad</a>
+            <a href="https://github.com/BlackRoad-OS" class="btn btn-secondary">View Source</a>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <h3>AI-Powered</h3>
+                <p>Built with advanced AI orchestration and automation</p>
+            </div>
+            <div class="feature">
+                <h3>Open Source</h3>
+                <p>Transparent, auditable, community-driven development</p>
+            </div>
+            <div class="feature">
+                <h3>Sovereign</h3>
+                <p>Own your infrastructure, data, and digital identity</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2026 <a href="https://blackroad.io">BlackRoad OS, Inc.</a> | Part of the BlackRoad Ecosystem
+    </footer>
+</body>
+</html>
